@@ -1,0 +1,41 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# testing
+/coverage
+
+# next.js build
+/.next/
+/out/
+/build
+
+# misc & OS
+.DS_Store
+*.pem
+Thumbs.db
+
+# debug & logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files (never commit secrets)
+.env*.local
+.env.local
+
+# IDE & AI tooling
+.claude/
+.gemini/
+.vscode/
+.idea/
+
+# vercel
+.vercel
+
+# typescript build cache
+*.tsbuildinfo
+next-env.d.ts

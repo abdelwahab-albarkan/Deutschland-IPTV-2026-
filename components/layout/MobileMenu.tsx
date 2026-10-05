@@ -103,7 +103,7 @@ export default function MobileMenu({ onClose, locale, siteName, links: navLinks,
           >
             <Image
               src="/images/logo-iptvanbieter4k.png"
-              alt="IPTVAnbieter4k.de"
+              alt="4KAnbieterIPTV.de"
               width={2172}
               height={724}
               sizes="(min-width: 640px) 180px, 150px"

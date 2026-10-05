@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/site";
 import { SUPPORTED_LOCALES } from "@/data/i18n";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = siteConfig.url || "https://iptvanbieter4k.de";
+  const baseUrl = siteConfig.url || "https://4kanbieteriptv.de";
   const now = new Date().toISOString();
 
   const baseRoutes = [

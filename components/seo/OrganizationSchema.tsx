@@ -8,7 +8,7 @@ export default function OrganizationSchema() {
     "@type": "Organization",
     name: siteConfig.name,
     legalName: siteConfig.legalName,
-    alternateName: ["IPTV Anbieter 4K", "Deutschland IPTV", "IPTV DE"],
+    alternateName: ["4K Anbieter IPTV", "4kanbieteriptv.de", "IPTV Anbieter 4K", "Deutschland IPTV"],
     url: siteConfig.url,
     logo: `${siteConfig.url}/images/logo-iptvanbieter4k.png`,
     image: `${siteConfig.url}/images/logo-iptvanbieter4k.png`,

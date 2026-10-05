@@ -1,5 +1,5 @@
 /**
- * IndexNow Fast Indexing Protocol for https://iptvanbieter4k.de
+ * IndexNow Fast Indexing Protocol for https://4kanbieteriptv.de
  * 
  * Supports:
  *  1. Submitting all URLs from sitemap.xml
@@ -16,7 +16,7 @@ const fs = require('fs');
 const path = require('path');
 
 // 1. DOMAIN & CONFIGURATION
-const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://iptvanbieter4k.de').replace(/\/+$/, '');
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://4kanbieteriptv.de').replace(/\/+$/, '');
 const HOST = new URL(SITE_URL).hostname;
 const SITEMAP_URL = `${SITE_URL}/sitemap.xml`;
 

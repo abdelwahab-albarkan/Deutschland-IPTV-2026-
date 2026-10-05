@@ -84,7 +84,7 @@ export default function Footer({ locale = DEFAULT_LOCALE }: { locale?: string })
             >
               <Image
               src="/images/logo-iptvanbieter4k.png"
-              alt="IPTVAnbieter4k.de"
+              alt="4KAnbieterIPTV.de"
               width={2172}
               height={724}
               sizes="(min-width: 640px) 180px, 150px"

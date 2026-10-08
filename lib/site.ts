@@ -12,6 +12,12 @@ export const siteConfig = {
     telegram: process.env.NEXT_PUBLIC_SUPPORT_TELEGRAM || "deutschland_iptv_support",
     hours: "24/7 Live Support via WhatsApp & E-Mail",
   },
+  // Required for a German Impressum (§5 DDG). Fill via env; shown on /impressum only when set.
+  legal: {
+    address: process.env.NEXT_PUBLIC_LEGAL_ADDRESS || "",
+    representative: process.env.NEXT_PUBLIC_LEGAL_REPRESENTATIVE || "",
+    vatId: process.env.NEXT_PUBLIC_LEGAL_VAT_ID || "",
+  },
   stats: {
     channelsCount: "24.000+",
     vodCount: "120.000+",

@@ -19,14 +19,6 @@ export default function ProductSchema() {
         },
         sku: "IPTV-4K-DE-PREMIUM",
         mpn: "IPTV-DE-4K-2026",
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: "4.9",
-          bestRating: "5",
-          worstRating: "1",
-          ratingCount: "3420",
-          reviewCount: "3420",
-        },
         offers: {
           "@type": "AggregateOffer",
           url: `${siteConfig.url}/preise`,
@@ -51,38 +43,6 @@ export default function ProductSchema() {
             returnFees: "https://schema.org/FreeReturn",
           },
         },
-        review: [
-          {
-            "@type": "Review",
-            reviewRating: {
-              "@type": "Rating",
-              ratingValue: "5",
-              bestRating: "5",
-            },
-            author: {
-              "@type": "Person",
-              name: "Maximilian K.",
-            },
-            datePublished: "2026-09-28",
-            reviewBody:
-              "Bundesliga und Champions League laufen ohne einen einzigen Aussetzer in perfektem 4K/60FPS auf meinem Samsung TV. Der beste IPTV Anbieter in Deutschland!",
-          },
-          {
-            "@type": "Review",
-            reviewRating: {
-              "@type": "Rating",
-              ratingValue: "5",
-              bestRating: "5",
-            },
-            author: {
-              "@type": "Person",
-              name: "Stefan B.",
-            },
-            datePublished: "2026-09-30",
-            reviewBody:
-              "Top Support via WhatsApp. Die Aktivierung war in 3 Minuten erledigt. Alle ORF Sender und Sky Sport absolut flüssig.",
-          },
-        ],
       },
       {
         "@type": "Service",

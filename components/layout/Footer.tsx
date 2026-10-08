@@ -12,16 +12,37 @@ import {
   Sparkles,
   Search,
   CheckCircle,
-  Globe,
 } from "lucide-react";
 import { siteConfig } from "@/lib/site";
 import { createWhatsAppLink } from "@/lib/utils";
 import { getUiText } from "@/lib/ui-text";
 import { getDictionary, SUPPORTED_LOCALES, DEFAULT_LOCALE, Locale } from "@/data/i18n";
 import { getLocalizedFooterLinks } from "@/lib/navigation";
-import LanguageSelector from "./LanguageSelector";
+import FooterLanguageLinks from "./FooterLanguageLinks";
 
 type FooterLink = { title: string; href: string };
+
+/** Sends each keyword chip to the most relevant page instead of linking everything to /iptv-kaufen. */
+const KEYWORD_ROUTES: [RegExp, string][] = [
+  [/test|trial|probe|essai|prueba|prova|teste|proef|deneme|provë|تجربة/i, "iptv-test"],
+  [/bundesliga|fu(ß|ss)ball|football|sport|dazn|sky|calcio|fútbol|futebol|voetbal|futbol|رياض|كرة/i, "iptv-bundesliga"],
+  [/fire ?tv|firestick|amazon/i, "iptv-fire-tv"],
+  [/samsung|tizen/i, "iptv-samsung"],
+  [/m3u|xtream|playlist/i, "iptv-m3u"],
+  [/kodi|vlc/i, "iptv-kodi"],
+  [/reseller|panel|revend|rivendit/i, "iptv-reseller"],
+  [/install|einricht|setup|anleitung|guide|configur/i, "iptv-installieren"],
+  [/app|player|smarters|tivimate/i, "iptv-apps"],
+  [/preis|price|prix|precio|prezzo|preço|prijs|cena|fiyat|çmim|günstig|cheap|abo|سعر/i, "preise"],
+  [/anbieter|provider|fournisseur|proveedor|fornitore|fornecedor|aanbieder|dostawc|sağlayıcı|ofrues|مزود|vergleich|comparison/i, "iptv-anbieter"],
+  [/sender|channel|chaîne|canales|canali|canais|zenders|kana|kanal|قنوات|liste/i, "iptv-deutschland"],
+  [/funktioniert nicht|not working|ruckel|buffer|freeze|problem/i, "iptv-funktioniert-nicht"],
+];
+
+function keywordHref(tag: string, locale: string) {
+  const hit = KEYWORD_ROUTES.find(([re]) => re.test(tag));
+  return `/${locale}/${hit ? hit[1] : "iptv-kaufen"}`;
+}
 
 function FooterColumn({
   title,
@@ -152,7 +173,7 @@ export default function Footer({ locale = DEFAULT_LOCALE }: { locale?: string })
             {dict.seoKeywords.map((tag, idx) => (
               <li key={idx}>
                 <Link
-                  href={`/${detectedLocale}/iptv-kaufen`}
+                  href={keywordHref(tag, detectedLocale)}
                   className="inline-block px-3 py-1.5 rounded-xl bg-[#080910] border border-purple-500/15 hover:border-primary-500/50 text-xs text-slate-300 hover:text-primary-300 transition-colors"
                 >
                   {tag}
@@ -190,10 +211,7 @@ export default function Footer({ locale = DEFAULT_LOCALE }: { locale?: string })
             <p className="text-xs sm:text-sm">
               © {new Date().getFullYear()} {siteConfig.legalName}. {dict.footer.rightsReserved}
             </p>
-            <div className="flex items-center gap-2">
-              <Globe className="w-4 h-4 text-slate-400" aria-hidden="true" />
-              <LanguageSelector variant="footer" currentLocale={detectedLocale} ui={ui} />
-            </div>
+            <FooterLanguageLinks currentLocale={detectedLocale} label={ui.selectLanguage} />
           </div>
           <nav aria-label={`${dict.footer.imprint} · ${dict.footer.privacy}`} className="flex flex-wrap items-center gap-x-5 gap-y-1">
             {legalLinks.map((link) => (

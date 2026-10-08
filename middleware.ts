@@ -16,6 +16,15 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // Wrong-case locale (/DE, /En/preise) -> canonical lowercase locale
+  const firstSeg = pathname.split("/")[1] || "";
+  const lowerSeg = firstSeg.toLowerCase();
+  if (firstSeg !== lowerSeg && SUPPORTED_LOCALES.some((l) => l === lowerSeg)) {
+    const fixed = request.nextUrl.clone();
+    fixed.pathname = `/${lowerSeg}${pathname.slice(firstSeg.length + 1)}`;
+    return NextResponse.redirect(fixed, 308);
+  }
+
   // Check if pathname starts with any supported locale
   const pathnameHasLocale = SUPPORTED_LOCALES.some(
     (locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`)

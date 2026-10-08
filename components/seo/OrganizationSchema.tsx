@@ -18,11 +18,6 @@ export default function OrganizationSchema() {
     priceRange: "€€",
     currenciesAccepted: "EUR, USD, CHF, GBP",
     paymentAccepted: "Credit Card, PayPal, Revolut, Giropay, Sofortüberweisung, Paysafecard, Cryptocurrency",
-    address: {
-      "@type": "PostalAddress",
-      addressCountry: "DE",
-      addressLocality: "Frankfurt am Main",
-    },
     contactPoint: [
       {
         "@type": "ContactPoint",
@@ -46,10 +41,6 @@ export default function OrganizationSchema() {
           closes: "23:59",
         },
       },
-    ],
-    sameAs: [
-      `https://wa.me/${siteConfig.support.whatsapp.replace(/[^0-9]/g, "")}`,
-      `https://t.me/${siteConfig.support.telegram}`,
     ],
   };
 

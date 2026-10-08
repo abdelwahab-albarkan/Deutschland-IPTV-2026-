@@ -4,7 +4,6 @@ import { SUPPORTED_LOCALES } from "@/data/i18n";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url || "https://4kanbieteriptv.de";
-  const now = new Date().toISOString();
 
   const baseRoutes = [
     { path: "", priority: 1.0, changeFrequency: "daily" as const },
@@ -46,7 +45,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
       sitemapEntries.push({
         url: `${baseUrl}/${locale}${route.path}`,
-        lastModified: now,
         changeFrequency: route.changeFrequency,
         priority: adjustedPriority,
         alternates: {

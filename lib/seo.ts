@@ -28,7 +28,10 @@ export function constructMetadata({
   ogImage = "/images/og/default-og.jpg",
 }: GenerateMetadataProps): Metadata {
   const locInfo = getLocaleInfo(locale);
-  const fullTitle = `${title} | ${siteConfig.name}`;
+  // Append the brand only when it is not already in the title and the result stays SERP-friendly
+  const brandSuffix = ` | ${siteConfig.name}`;
+  const hasBrand = title.toLowerCase().includes(siteConfig.name.toLowerCase());
+  const fullTitle = hasBrand || (title + brandSuffix).length > 60 ? title : `${title}${brandSuffix}`;
 
   // Clean slug
   const cleanSlug = slug.replace(/^\/+|\/+$/g, "");

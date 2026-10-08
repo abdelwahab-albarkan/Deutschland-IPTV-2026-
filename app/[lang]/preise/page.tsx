@@ -7,6 +7,7 @@ import PaymentMethods from "@/components/pricing/PaymentMethods";
 import CustomerReviews from "@/components/home/CustomerReviews";
 import HomeFAQ from "@/components/home/HomeFAQ";
 import { constructMetadata } from "@/lib/seo";
+import ProductSchema from "@/components/seo/ProductSchema";
 import {
   SUPPORTED_LOCALES,
   getDictionary,
@@ -49,7 +50,9 @@ export default async function LocalizedPreisePage({
   const pageData = dict.seoPages["preise"] || seoPagesData["preise"] || seoPagesData["iptv-kaufen"];
 
   return (
-    <div className="space-y-12">
+    <>
+      <ProductSchema />
+      <div className="space-y-12">
       <Breadcrumbs items={[{ name: dict.nav.pricing, url: `/${locale}/preise` }]} />
 
       {pageData && (
@@ -70,5 +73,6 @@ export default async function LocalizedPreisePage({
 
       <HomeFAQ locale={locale} />
     </div>
+    </>
   );
 }

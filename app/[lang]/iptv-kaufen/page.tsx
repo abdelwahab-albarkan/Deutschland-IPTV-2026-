@@ -8,6 +8,7 @@ import CustomerReviews from "@/components/home/CustomerReviews";
 import HomeFAQ from "@/components/home/HomeFAQ";
 import CTASection from "@/components/content/CTASection";
 import { constructMetadata } from "@/lib/seo";
+import ProductSchema from "@/components/seo/ProductSchema";
 import {
   SUPPORTED_LOCALES,
   getDictionary,
@@ -50,7 +51,9 @@ export default async function LocalizedIptvKaufenPage({
   const pageData = dict.seoPages["iptv-kaufen"] || seoPagesData["iptv-kaufen"];
 
   return (
-    <div className="space-y-12">
+    <>
+      <ProductSchema />
+      <div className="space-y-12">
       <Breadcrumbs items={[{ name: dict.nav.buy, url: `/${locale}/iptv-kaufen` }]} />
 
       {/* Main Commercial Content Section */}
@@ -85,5 +88,6 @@ export default async function LocalizedIptvKaufenPage({
         secondaryBtnHref={`/${locale}/iptv-test`}
       />
     </div>
+    </>
   );
 }

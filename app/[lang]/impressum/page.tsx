@@ -59,6 +59,24 @@ export default async function LocalizedImpressumPage({
                 <strong>{siteConfig.legalName}</strong>
                 <br />
                 Internet & Streaming Services Europe
+                {siteConfig.legal.representative && (
+                  <>
+                    <br />
+                    Represented by: {siteConfig.legal.representative}
+                  </>
+                )}
+                {siteConfig.legal.address && (
+                  <>
+                    <br />
+                    {siteConfig.legal.address}
+                  </>
+                )}
+                {siteConfig.legal.vatId && (
+                  <>
+                    <br />
+                    VAT ID: {siteConfig.legal.vatId}
+                  </>
+                )}
                 <br />
                 E-Mail: {siteConfig.support.email}
                 <br />

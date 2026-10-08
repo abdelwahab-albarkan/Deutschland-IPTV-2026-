@@ -5,7 +5,6 @@ import { Inter, Outfit } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import OrganizationSchema from "@/components/seo/OrganizationSchema";
-import ProductSchema from "@/components/seo/ProductSchema";
 import WebSiteSchema from "@/components/seo/WebSiteSchema";
 import { siteConfig } from "@/lib/site";
 import { constructMetadata } from "@/lib/seo";
@@ -75,7 +74,6 @@ export default async function LocaleLayout({
       <head>
         <OrganizationSchema />
         <WebSiteSchema />
-        <ProductSchema />
       </head>
       <body className="bg-background text-slate-100 min-h-screen flex flex-col font-sans selection:bg-primary-500 selection:text-black">
         <a

@@ -12,6 +12,7 @@ import HomeFAQ from "@/components/home/HomeFAQ";
 import CTASection from "@/components/content/CTASection";
 import SeoPillarGuide from "@/components/home/SeoPillarGuide";
 import { constructMetadata } from "@/lib/seo";
+import ProductSchema from "@/components/seo/ProductSchema";
 import {
   SUPPORTED_LOCALES,
   getDictionary,
@@ -49,7 +50,9 @@ export default async function LocalizedHomePage({
   const dict = getDictionary(locale);
 
   return (
-    <div className="space-y-16 sm:space-y-24">
+    <>
+      <ProductSchema />
+      <div className="space-y-16 sm:space-y-24">
       {/* 1. Hero Section */}
       <Hero locale={locale} />
 
@@ -91,5 +94,6 @@ export default async function LocalizedHomePage({
         secondaryBtnHref={`/${locale}/iptv-test`}
       />
     </div>
+    </>
   );
 }

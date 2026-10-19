@@ -28,6 +28,7 @@ export async function generateMetadata({
     title: dict.footer.privacy,
     description: `Datenschutzerklärung & Privacy Policy für ${siteConfig.name}`,
     canonicalUrl: `/${lang}/datenschutz`,
+    noIndex: lang !== "de",
   });
 }
 

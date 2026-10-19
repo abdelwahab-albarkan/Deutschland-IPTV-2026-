@@ -32,6 +32,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const locale of SUPPORTED_LOCALES) {
     for (const route of baseRoutes) {
+      // German legal compliance pages only need to be in sitemap for the primary German locale
+      const isLegal = ["/impressum", "/datenschutz", "/agb", "/widerruf"].includes(route.path);
+      if (isLegal && locale !== "de") {
+        continue;
+      }
+
       const isPrimaryGerman = locale === "de";
       const adjustedPriority = isPrimaryGerman
         ? route.priority

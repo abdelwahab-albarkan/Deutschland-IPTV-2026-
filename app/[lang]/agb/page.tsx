@@ -28,6 +28,7 @@ export async function generateMetadata({
     title: dict.footer.terms,
     description: `Allgemeine Geschäftsbedingungen & Terms of Service für ${siteConfig.name}`,
     canonicalUrl: `/${lang}/agb`,
+    noIndex: lang !== "de",
   });
 }
 

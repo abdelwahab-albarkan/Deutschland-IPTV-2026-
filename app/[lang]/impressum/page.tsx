@@ -28,6 +28,7 @@ export async function generateMetadata({
     title: dict.footer.imprint,
     description: `Rechtliche Angaben & Impressum für ${siteConfig.name}`,
     canonicalUrl: `/${lang}/impressum`,
+    noIndex: lang !== "de",
   });
 }
 

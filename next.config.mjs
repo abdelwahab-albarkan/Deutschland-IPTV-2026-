@@ -13,6 +13,32 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "iptvanbieter4k.de",
+          },
+        ],
+        destination: "https://4kanbieteriptv.de/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "www.iptvanbieter4k.de",
+          },
+        ],
+        destination: "https://4kanbieteriptv.de/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

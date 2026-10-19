@@ -28,6 +28,7 @@ export async function generateMetadata({
     title: dict.footer.withdrawal,
     description: `Widerrufsbelehrung & Refund Policy für ${siteConfig.name}`,
     canonicalUrl: `/${lang}/widerruf`,
+    noIndex: lang !== "de",
   });
 }
 

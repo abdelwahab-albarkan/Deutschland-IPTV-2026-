@@ -16,6 +16,7 @@ export interface GenerateMetadataProps {
   keywords?: string[];
   canonicalUrl?: string;
   ogImage?: string;
+  noIndex?: boolean;
 }
 
 export function constructMetadata({
@@ -26,6 +27,7 @@ export function constructMetadata({
   keywords = [],
   canonicalUrl,
   ogImage = "/images/og/default-og.jpg",
+  noIndex = false,
 }: GenerateMetadataProps): Metadata {
   const locInfo = getLocaleInfo(locale);
   // Append the brand only when it is not already in the title and the result stays SERP-friendly
@@ -89,16 +91,21 @@ export function constructMetadata({
       description: description,
       images: [ogImage.startsWith("http") ? ogImage : `${siteConfig.url}${ogImage}`],
     },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-video-preview": -1,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-      },
-    },
+    robots: noIndex
+      ? {
+          index: false,
+          follow: true,
+        }
+      : {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            "max-video-preview": -1,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+          },
+        },
   };
 }

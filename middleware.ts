@@ -3,6 +3,13 @@ import type { NextRequest } from "next/server";
 import { SUPPORTED_LOCALES, DEFAULT_LOCALE } from "./data/i18n/types";
 
 export function middleware(request: NextRequest) {
+  // 1. 301 Permanent Redirect from old domain iptvanbieter4k.de to 4kanbieteriptv.de
+  const host = request.headers.get("host") || "";
+  if (host.includes("iptvanbieter4k.de")) {
+    const targetUrl = new URL(request.nextUrl.pathname + request.nextUrl.search, "https://4kanbieteriptv.de");
+    return NextResponse.redirect(targetUrl, 301);
+  }
+
   const { pathname } = request.nextUrl;
 
   // Ignore static assets, next internals, api, images, etc.

@@ -7,7 +7,7 @@ export default function WebSiteSchema() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: siteConfig.name,
-    alternateName: ["4K Anbieter IPTV", "4kanbieteriptv.de", "IPTV Anbieter 4K", "Deutschland IPTV"],
+    alternateName: ["IPTV Provider 8K", "iptvprovider-8kcom.com", "4K Anbieter IPTV", "Deutschland IPTV"],
     url: siteConfig.url,
     description: siteConfig.description,
     inLanguage: ["de", "en", "fr", "es", "it", "pt", "nl", "pl", "tr", "sq", "ar"],

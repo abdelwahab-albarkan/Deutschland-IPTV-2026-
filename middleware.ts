@@ -3,10 +3,10 @@ import type { NextRequest } from "next/server";
 import { SUPPORTED_LOCALES, DEFAULT_LOCALE } from "./data/i18n/types";
 
 export function middleware(request: NextRequest) {
-  // 1. 301 Permanent Redirect from old domain iptvanbieter4k.de to 4kanbieteriptv.de
+  // 1. 301 Permanent Redirect from old domains to iptvprovider-8kcom.com
   const host = request.headers.get("host") || "";
-  if (host.includes("iptvanbieter4k.de")) {
-    const targetUrl = new URL(request.nextUrl.pathname + request.nextUrl.search, "https://4kanbieteriptv.de");
+  if (host.includes("iptvanbieter4k.de") || host.includes("4kanbieteriptv.de")) {
+    const targetUrl = new URL(request.nextUrl.pathname + request.nextUrl.search, "https://iptvprovider-8kcom.com");
     return NextResponse.redirect(targetUrl, 301);
   }
 

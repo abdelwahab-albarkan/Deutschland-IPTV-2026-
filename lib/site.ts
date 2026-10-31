@@ -2,8 +2,8 @@ export const siteConfig = {
   name: "Deutschland IPTV",
   legalName: "IPTV Deutschland Premium Services",
   shortName: "IPTV DE",
-  domain: "4kanbieteriptv.de",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://4kanbieteriptv.de",
+  domain: "iptvprovider-8kcom.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://iptvprovider-8kcom.com",
   description:
     "Deutschlands führender IPTV Anbieter mit über 24.000 Live-Sendern, 120.000+ VOD Filmen & Serien in echtem 4K/FHD mit 99.9% Uptime & Anti-Freeze 9.3 Technologie.",
   support: {

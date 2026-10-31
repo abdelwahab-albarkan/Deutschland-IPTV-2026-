@@ -20,10 +20,32 @@ const nextConfig = {
         has: [
           {
             type: "host",
+            value: "4kanbieteriptv.de",
+          },
+        ],
+        destination: "https://iptvprovider-8kcom.com/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "www.4kanbieteriptv.de",
+          },
+        ],
+        destination: "https://iptvprovider-8kcom.com/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
             value: "iptvanbieter4k.de",
           },
         ],
-        destination: "https://4kanbieteriptv.de/:path*",
+        destination: "https://iptvprovider-8kcom.com/:path*",
         permanent: true,
       },
       {
@@ -34,7 +56,7 @@ const nextConfig = {
             value: "www.iptvanbieter4k.de",
           },
         ],
-        destination: "https://4kanbieteriptv.de/:path*",
+        destination: "https://iptvprovider-8kcom.com/:path*",
         permanent: true,
       },
     ];

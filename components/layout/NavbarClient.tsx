@@ -116,7 +116,7 @@ export default function NavbarClient({ locale, siteName, links, whatsappUrl, ui,
           >
             <Image
               src="/images/logo-iptvanbieter4k.png"
-              alt="4KAnbieterIPTV.de"
+              alt={siteName}
               width={2172}
               height={724}
               sizes="(min-width: 640px) 220px, 160px"
